@@ -1,5 +1,5 @@
 {
-  "name": "falcor-node",
+  "name": "falcor-server",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Brady Paulson",
-  "license": "MIT",
+  "license": "ALV2",
   "dependencies": {
     "express": "~4.11.1",
     "rx": "~2.3.24",
