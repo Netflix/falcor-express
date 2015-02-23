@@ -2,7 +2,7 @@
   "name": "falkor_node",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "~4.11.1",
-    "mongodb": "~1.4.29",
     "rx": "~2.3.24",
-    "node-uuid": "~1.4.2"
+    "falcor": "git+ssh://git@github.com/Netflix/falcor.git#v0.0.3"
   }
 }
