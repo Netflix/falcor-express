@@ -11,7 +11,7 @@ var FalkorEndpoint = function(model) {
 
 FalkorEndpoint.prototype = {
     /**
-     * 
+     *
      * @param {Object} context the context object which is the query parameters and any other
      * useful information required by falkor
      * @param {Function} [callback] The callback when done.
@@ -19,7 +19,6 @@ FalkorEndpoint.prototype = {
     execute: function(context, callback) {
         var obs;
         try {
-            debugger;
             if (context.method && context.path) {
                 if (typeof context.path === 'string') {
                     context.path = JSON.parse(context.path);
@@ -28,7 +27,7 @@ FalkorEndpoint.prototype = {
                 if (method === 'call') {
                 } else {
                     // no need to materialize since json always returns errors as values.
-                    obs = this._model[method](context.path).
+                    obs = this._model[method].apply(this._model, context.path).
                         toJSONG();
                 }
             } else {
@@ -37,7 +36,7 @@ FalkorEndpoint.prototype = {
         } catch (e) {
             obs = Rx.Observable.throw(e);
         }
-        
+
         obs.
             subscribe(function(x) {
                 callback(null, JSON.stringify(x));
@@ -45,7 +44,7 @@ FalkorEndpoint.prototype = {
                 callback(err);
             });
     },
-    
+
     fromHttpRequest: function(req, cb) {
         var urlValue = url.parse(req.url);
         var context = {};
