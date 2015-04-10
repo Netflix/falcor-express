@@ -11,7 +11,7 @@
   "dependencies": {
     "express": "~4.11.1",
     "rx": "~2.3.24"
-  }
+  },
   "devDependencies": {
     "falcor": "git+ssh://git@github.com/Netflix/falcor.git#v0.0.3"
   }
