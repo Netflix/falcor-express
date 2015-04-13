@@ -1,6 +1,6 @@
 {
   "name": "falcor-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -13,6 +13,6 @@
     "rx": "~2.3.24"
   },
   "devDependencies": {
-    "falcor": "git+ssh://git@github.com/Netflix/falcor.git#v0.0.3"
+    "falcor": "git+ssh://git@github.com/Netflix/falcor.git#v0.0.7"
   }
 }
