@@ -1,6 +1,7 @@
 var Rx = require('rx');
 var requestToContext = require('./requestToContext');
 var execute = require('./execute');
+var FalcorEndpoint = module.exports = {};
 
 FalcorEndpoint.ExpressMiddleware = function(model) {
     return function(req, res, next) {
@@ -15,4 +16,3 @@ FalcorEndpoint.ExpressMiddleware = function(model) {
     };
 };
 
-module.exports = FalcorEndpoint;
