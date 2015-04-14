@@ -15,4 +15,5 @@ module.exports = function requestToContext(req) {
             return acc;
         }, {});
     }
+    return context;
 };
