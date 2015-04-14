@@ -10,7 +10,7 @@ module.exports = function execute(model) {
                 if (method === 'call') {
                 } else {
                     // no need to materialize since json always returns errors as values.
-                    obs = model[method].apply(model, context.path).
+                    obs = model[method].apply(model, [].concat(context.path)).
                         toJSONG();
                 }
             } else {
