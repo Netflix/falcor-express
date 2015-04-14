@@ -2,7 +2,7 @@ var Rx = require('rx');
 var requestToContext = require('./requestToContext');
 var execute = require('./execute');
 
-FalcorEndpoint.ExpressMiddelware = function(model) {
+FalcorEndpoint.ExpressMiddleware = function(model) {
     return function(req, res, next) {
         var context = requestToContext(req);
         execute(context, function(err, jsong) {
