@@ -1,9 +1,10 @@
 var url = require('url');
 module.exports = function requestToContext(req) {
-    var urlValue = url.parse(req.url);
+    var queryString = req.method === 'POST' ? req.bodyraw : url.parse(req.url).query;
     var context = {};
-    if (urlValue.query) {
-        context = urlValue.query.
+
+    if (queryString) {
+        context = queryString.
             split('&').
             reduce(function(acc, q) {
             var queryParam = q.split('=');
