@@ -3,11 +3,10 @@ var requestToContext = require('./requestToContext');
 var execute = require('./execute');
 var FalcorEndpoint = module.exports = {};
 
-FalcorEndpoint.ExpressMiddleware = function(model) {
-    var exec = execute(model);
+FalcorEndpoint.expressMiddleware = function(getModel) {
     return function(req, res, next) {
         var context = requestToContext(req);
-        exec(context, function(err, jsong) {
+        execute(getModel(req, res), context, function(err, jsong) {
             if (err) {
                 res.status(500).send(err);
             } else {
