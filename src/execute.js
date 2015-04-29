@@ -1,3 +1,5 @@
+var Rx = require('rx');
+
 module.exports = function execute(model, context, callback) {
     var obs;
     try {
