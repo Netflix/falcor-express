@@ -1,15 +1,17 @@
-var url = require('url');
+"use strict";
+
+var url = require("url");
 module.exports = function requestToContext(req) {
-    var queryString = req.method === 'POST' ? req.bodyraw : url.parse(req.url).query;
+    var queryString = req.method === "POST" ? req.bodyraw : url.parse(req.url).query;
     var context = {};
 
     if (queryString) {
         context = queryString.
-            split('&').
+            split("&").
             reduce(function(acc, q) {
-            var queryParam = q.split('=');
+            var queryParam = q.split("=");
             acc[queryParam[0]] = decodeURIComponent(queryParam[1]);
-            if (queryParam[0] === 'path') {
+            if (queryParam[0] === "path") {
                 // optional, Falcor endpoint will take care of that.
                 acc[queryParam[0]] = JSON.parse(acc[queryParam[0]]);
             }

@@ -1,6 +1,7 @@
-var Rx = require('rx');
-var requestToContext = require('./requestToContext');
-var execute = require('./execute');
+"use strict";
+
+var requestToContext = require("./requestToContext");
+var execute = require("./execute");
 var FalcorEndpoint = module.exports = {};
 
 FalcorEndpoint.expressMiddleware = function(getModel) {
