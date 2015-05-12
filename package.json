@@ -19,13 +19,13 @@
     }
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "node ./node_modules/.bin/eslint src/"
   },
   "dependencies": {
     "express": "~4.11.1",
     "rx": "~2.3.24"
   },
   "devDependencies": {
-    "falcor": "git+ssh://git@github.com/Netflix/falcor.git"
+    "eslint": "^0.21.0"
   }
 }
