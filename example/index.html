@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script src="falcor.browser.js"></script>
+    <script>
+        window.model = new falcor.Model({
+            source: new falcor.HttpDataSource('model.json')
+        });
+        window.log = console.log.bind(console);
+
+        // triggers a get
+        model.get('list[0].name').then(log);
+
+        // triggers a post [nothing is written!]
+        model.set({
+            path: 'list[0].name',
+            value: 'test123'
+        }).then(log);
+
+    </script>
+</head>
+<body>
+remember to copy falcor.browser.js in this path<br/>
+check the console for output.
+</body>
+</html>
