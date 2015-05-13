@@ -14,12 +14,6 @@ var app = express();
 var TestRouter = <your router here>;
 var _TestRouter = new TestRouter();
 
-var app = new Hapi.Server();
-app.connection({
-    host: "localhost",
-    port: 9090
-});
-
 app.use('/model.json', FalcorServer.expressMiddleware(_TestRouter));
 
 app.use(express.static('.'));
