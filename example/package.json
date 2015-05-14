@@ -1,0 +1,17 @@
+{
+  "name": "falcor-sample",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "falcor-server": "git+ssh://git@github.com/Netflix/falcor-server.git",
+    "falcor-browser": "git+ssh://git@github.com/Netflix/falcor-browser.git",
+    "falcor": "git+ssh://git@github.com/Netflix/falcor.git",
+    "falcor-router": "git+ssh://git@github.com/Netflix/falcor-router.git",
+    "express": "~4.12.3",
+    "rx": "~2.5.2"
+  },
+  "description": "## a sample to get you started with falcor."
+}
