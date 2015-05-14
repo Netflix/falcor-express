@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var FalcorServer = require('falcor-server');
 var falcor = require('falcor');
@@ -6,9 +7,12 @@ var Rx = require('rx');
 var Router = require('falcor-router');
 var $ref = falcor.Model.ref;
 
+app.use(bodyParser.text({ type: 'text/*' }))
+
 function TestRouter(request) {
     this._request = request;
 }
+
 TestRouter.prototype = new Router([
     {
         route: "titlesById[{integers}].name",
@@ -38,14 +42,12 @@ TestRouter.prototype = new Router([
             })
         }
     }
-])
+]);
+
 var _TestRouter = new TestRouter();
 
 // Simple middleware to handle get/post
-app.use('/model.json', FalcorServer.expressMiddleware(function() { 
-    return new falcor.Model({source: _TestRouter})
-}));
-
+app.use('/model.json', FalcorServer.expressMiddleware(_TestRouter));
 app.use(express.static('.'));
 
 //

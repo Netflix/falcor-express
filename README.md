@@ -8,12 +8,14 @@ Minimalistic example
 
 ```
 var FalcorServer = require('falcor-express');
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
 var TestRouter = <your router here>;
 var _TestRouter = new TestRouter();
 
+app.use(bodyParser.text({ type: 'text/*' }))
 app.use('/model.json', FalcorServer.expressMiddleware(_TestRouter));
 
 app.use(express.static('.'));

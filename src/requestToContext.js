@@ -2,9 +2,8 @@
 
 var url = require("url");
 module.exports = function requestToContext(req) {
-    var queryString = req.method === "POST" ? req.bodyraw : url.parse(req.url).query;
+    var queryString = req.method === "POST" ? req.body : url.parse(req.url).query;
     var context = {};
-
     if (queryString) {
         context = queryString.
             split("&").

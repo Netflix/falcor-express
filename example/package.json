@@ -11,7 +11,8 @@
     "falcor": "git+ssh://git@github.com/Netflix/falcor.git",
     "falcor-router": "git+ssh://git@github.com/Netflix/falcor-router.git",
     "express": "~4.12.3",
-    "rx": "~2.5.2"
+    "rx": "~2.5.2",
+    "body-parser": "^1.12.4"
   },
   "description": "## a sample to get you started with falcor."
 }
