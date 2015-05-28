@@ -2,7 +2,7 @@
 var requestToContext = require("./requestToContext");
 var FalcorEndpoint = module.exports = {};
 
-FalcorEndpoint.expressMiddleware = function(getDataSource) {
+FalcorEndpoint.modelRoute = function(getDataSource) {
     return function(req, res) {
         var dataSource = getDataSource(req, res);
         var context = requestToContext(req);
