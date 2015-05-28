@@ -2,6 +2,11 @@
 var requestToContext = require("./requestToContext");
 var FalcorEndpoint = module.exports = {};
 
+FalcorEndpoint.expressMiddleware = function(getDataSource) {
+    console.warn("expressMiddleware is deprecated, use modelRoute instead");
+    this.modelRoute(getDataSource);
+};
+
 FalcorEndpoint.modelRoute = function(getDataSource) {
     return function(req, res) {
         var dataSource = getDataSource(req, res);
