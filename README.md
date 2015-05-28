@@ -17,7 +17,7 @@ var _TestRouter = new TestRouter();
 
 app.use(bodyParser.text({ type: 'text/*' }))
 app.use('/model.json', FalcorServer.modelRoute(function(req, res) {
-    return new _TestRouter();
+    return new TestRouter();
 }));
 
 app.use(express.static('.'));

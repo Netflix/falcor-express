@@ -48,7 +48,7 @@ var _TestRouter = new TestRouter();
 
 // Simple middleware to handle get/post
 app.use('/model.json', FalcorServer.modelRoute(function(req, res) {
-    return new _TestRouter();
+    return new TestRouter();
 }));
 app.use(express.static('.'));
 
