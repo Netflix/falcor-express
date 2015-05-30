@@ -1,16 +1,16 @@
 {
-  "name": "falcor-server",
+  "name": "falcor-express",
   "version": "0.0.11",
   "description": "A falcor server for express.",
   "main": "src/index.js",
-  "homepage": "https://github.com/Netflix/falcor-server",
+  "homepage": "https://github.com/Netflix/falcor-express",
   "author": {
     "name": "Netflix",
-    "url": "https://github.com/Netflix/falcor-server/authors.txt"
+    "url": "https://github.com/Netflix/falcor-express/authors.txt"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Netflix/falcor-server.git"
+    "url": "https://github.com/Netflix/falcor-express.git"
   },
   "licenses": [
     {
