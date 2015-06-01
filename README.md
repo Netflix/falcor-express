@@ -16,7 +16,7 @@ var TestRouter = <your router here>;
 var _TestRouter = new TestRouter();
 
 app.use(bodyParser.text({ type: 'text/*' }))
-app.use('/model.json', FalcorServer.modelRoute(function(req, res) {
+app.use('/model.json', FalcorServer.dataSourceRoute(function(req, res) {
     return new TestRouter();
 }));
 
