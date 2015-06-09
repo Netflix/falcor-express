@@ -21,7 +21,8 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
         if (typeof dataSource[context.method] === "undefined") {
             return res.status(500).send("Data source does not implement the requested method");
         }
-        dataSource[context.method]([].concat(context.path)).subscribe(function(jsong) {
+        var path = (Array.isArray(context.path)) ? [].concat(context.path) : context.path;
+        dataSource[context.method](path).subscribe(function(jsong) {
             res.status(200).send(JSON.stringify(jsong));
         }, function(err) {
             res.status(500).send(err);
