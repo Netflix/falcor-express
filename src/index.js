@@ -9,6 +9,7 @@ FalcorEndpoint.expressMiddleware = function(getDataSource) {
 
 FalcorEndpoint.dataSourceRoute = function(getDataSource) {
     return function(req, res) {
+        var obs;
         var dataSource = getDataSource(req, res);
         var context = requestToContext(req);
         // probably this should be sanity check function?
@@ -21,7 +22,16 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
         if (typeof dataSource[context.method] === "undefined") {
             return res.status(500).send("Data source does not implement the requested method");
         }
-        dataSource[context.method]([].concat(context.path)).subscribe(function(jsong) {
+
+        if (context.method === 'set') {
+            obs = dataSource[context.method](context.jsong);
+        } else if (context.method === 'call') {
+            obs = dataSource[context.method](context.callPath, context.arguments, context.pathSuffixes, context.paths);
+        } else {
+            obs = dataSource[context.method]([].concat(context.paths));
+        }
+
+        obs.subscribe(function(jsong) {
             res.status(200).send(JSON.stringify(jsong));
         }, function(err) {
             res.status(500).send(err);
