@@ -6,7 +6,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "falcor-server": "git+ssh://git@github.com/Netflix/falcor-server.git",
+    "falcor-express": "git+ssh://git@github.com/Netflix/falcor-express.git",
     "falcor-browser": "git+ssh://git@github.com/Netflix/falcor-browser.git",
     "falcor": "git+ssh://git@github.com/Netflix/falcor.git",
     "falcor-router": "git+ssh://git@github.com/Netflix/falcor-router.git",

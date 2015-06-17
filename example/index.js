@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var FalcorServer = require('falcor-server');
+var FalcorServer = require('falcor-express');
 var falcor = require('falcor');
 var Rx = require('rx');
 var Router = require('falcor-router');
@@ -47,7 +47,7 @@ TestRouter.prototype = new Router([
 var _TestRouter = new TestRouter();
 
 // Simple middleware to handle get/post
-app.use('/model.json', FalcorServer.modelRoute(function(req, res) {
+app.use('/model.json', FalcorServer.dataSourceRoute(function(req, res) {
     return new TestRouter();
 }));
 app.use(express.static('.'));
