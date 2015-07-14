@@ -24,7 +24,7 @@ TestRouter.prototype = new Router([
                 }
             })
             return Rx.Observable.of({
-                jsong: {titlesById: titlesById}
+                jsonGraph: {titlesById: titlesById}
             })
         }
     },
@@ -38,7 +38,7 @@ TestRouter.prototype = new Router([
                 }
             });
             return Rx.Observable.of({
-                jsong: {list: list}
+                jsonGraph: {list: list}
             })
         }
     }
