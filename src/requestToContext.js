@@ -3,7 +3,7 @@
 var url = require("url");
 
 var parseArgs = {
-  'jsong': true,
+  'jsonGraph': true,
   'callPath': true,
   'arguments': true,
   'pathSuffixes': true,

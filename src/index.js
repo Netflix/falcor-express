@@ -24,15 +24,15 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
         }
 
         if (context.method === 'set') {
-            obs = dataSource[context.method](context.jsong);
+            obs = dataSource[context.method](context.jsonGraph);
         } else if (context.method === 'call') {
             obs = dataSource[context.method](context.callPath, context.arguments, context.pathSuffixes, context.paths);
         } else {
             obs = dataSource[context.method]([].concat(context.paths));
         }
 
-        obs.subscribe(function(jsong) {
-            res.status(200).send(JSON.stringify(jsong));
+        obs.subscribe(function(jsonGraphEnvelope) {
+            res.status(200).send(JSON.stringify(jsonGraphEnvelope));
         }, function(err) {
             res.status(500).send(err);
         });
