@@ -13,7 +13,6 @@ var express = require('express');
 var app = express();
 
 var TestRouter = <your router here>;
-var _TestRouter = new TestRouter();
 
 app.use(bodyParser.text({ type: 'text/*' }))
 app.use('/model.json', FalcorServer.dataSourceRoute(function(req, res) {
