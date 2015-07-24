@@ -3,11 +3,11 @@
 var url = require("url");
 
 var parseArgs = {
-  'jsonGraph': true,
-  'callPath': true,
-  'arguments': true,
-  'pathSuffixes': true,
-  'paths': true
+    "jsonGraph": true,
+    "callPath": true,
+    "arguments": true,
+    "pathSuffixes": true,
+    "paths": true
 };
 
 module.exports = function requestToContext(req) {

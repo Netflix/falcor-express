@@ -8,7 +8,7 @@
         // possible errors
         "comma-dangle": [ 2 ],
         "no-cond-assign": [ 2 ],
-        "no-console": [ 2 ],
+        "no-console": [ 1 ],
         "no-constant-condition": [ 2 ],
         "no-control-regex": [ 2 ],
         "no-debugger": [ 2 ],
@@ -109,7 +109,7 @@
         "generator-star-spacing": [ 2, "after" ],
 
         // stylistic
-    /* COMMENTING THESE OUT UNTIL WE GET CONCENSUS ON THEM        
+    /* COMMENTING THESE OUT UNTIL WE GET CONCENSUS ON THEM
         "camelcase": [ 2, { "properties": "always" } ],
         "eol-last": [ 2 ],
         "key-spacing": [ 0 ],
