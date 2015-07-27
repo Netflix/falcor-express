@@ -19,7 +19,7 @@
     }
   ],
   "scripts": {
-    "lint": "node ./node_modules/.bin/eslint src/",
+    "lint": "node node_modules/gulp/bin/gulp.js lint",
     "test": "node node_modules/gulp/bin/gulp.js test"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
     "chai": "^3.2.0",
     "eslint": "^0.21.0",
     "gulp": "^3.9.0",
+    "gulp-eslint": "^0.15.0",
     "gulp-mocha": "^2.1.3"
   }
 }
