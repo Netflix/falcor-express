@@ -23,9 +23,9 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
             return res.status(500).send("Data source does not implement the requested method");
         }
 
-        if (context.method === 'set') {
+        if (context.method === "set") {
             obs = dataSource[context.method](context.jsonGraph);
-        } else if (context.method === 'call') {
+        } else if (context.method === "call") {
             obs = dataSource[context.method](context.callPath, context.arguments, context.pathSuffixes, context.paths);
         } else {
             obs = dataSource[context.method]([].concat(context.paths));
