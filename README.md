@@ -32,10 +32,11 @@ var server = app.listen(9090, function(err) {
 ```
 
 ## Development
-Please run linting before pushing on repo
+Before contributing, please run the linter and the tests to be sure there are no issues.
 ```
 npm run lint
 ```
-
-## Todo
- * Create mocha test for regression and development instad of using example
+and
+```
+npm run test
+```
