@@ -11,21 +11,19 @@ var parseArgs = {
 };
 
 module.exports = function requestToContext(req) {
-    var queryString = req.method === "POST" ? req.body : url.parse(req.url).query;
-    var context = {};
-    if (queryString) {
-        context = queryString.
-            split("&").
-            reduce(function(acc, q) {
-                var queryParam = q.split("=");
-                acc[queryParam[0]] = decodeURIComponent(queryParam[1]);
+    var queryMap = req.method === "POST" ? req.body : url.parse(req.url, true).query;
 
-                if (parseArgs[queryParam[0]]) {
-                    // optional, Falcor endpoint will take care of that.
-                    acc[queryParam[0]] = JSON.parse(acc[queryParam[0]]);
-                }
-                return acc;
-            }, {});
+    var context = {};
+    if (queryMap) {
+        Object.keys(queryMap).forEach(function(key) {
+            var arg = queryMap[key];
+            if (parseArgs[key] && arg != null) {
+                context[key] = JSON.parse(arg);
+            } else {
+                context[key] = arg;
+            }
+        });
     }
+
     return context;
 };
