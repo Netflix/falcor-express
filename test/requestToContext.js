@@ -35,23 +35,28 @@ describe('requestToContext', function () {
     it('For post requests', function (done) {
       var result = requestToContext({
         method: 'POST',
-        body: 'jsonGraph={"genrelist":{"0":{"titles":{"0":{"name":"jon"}}}},"paths":[["genrelist",0,"titles",0,"name"]]}&method=set'
+        body: {
+          jsonGraph: '{"jsonGraph":{"genrelist":{"0":{"titles":{"0":{"name":"jon"}}}},"paths":[["genrelist",0,"titles",0,"name"]]}}',
+          method: 'set'
+        }
       });
 
       expect(result).to.deep.equal({
         jsonGraph: {
-          "genrelist": {
-            "0": {
-              "titles": {
-                "0": {
-                  "name": "jon"
+          jsonGraph: {
+            "genrelist": {
+              "0": {
+                "titles": {
+                  "0": {
+                    "name": "jon"
+                  }
                 }
               }
-            }
-          },
-          "paths": [
-            ["genrelist", 0, "titles", 0, "name"]
-          ]
+            },
+            "paths": [
+              ["genrelist", 0, "titles", 0, "name"]
+            ]
+          }
         },
         method: 'set'
       });
