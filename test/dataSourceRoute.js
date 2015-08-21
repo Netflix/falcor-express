@@ -47,7 +47,10 @@ describe('dataSourceRoute', function () {
       // Fake POST request
       var fakeReq = {
         method: 'POST',
-        body: 'jsonGraph={"genrelist":{"0":{"titles":{"0":{"name":"jon"}}}},"paths":[["genrelist",0,"titles",0,"name"]]}&method=set'
+        body: {
+          jsonGraph: '{"genrelist":{"0":{"titles":{"0":{"name":"jon"}}}},"paths":[["genrelist",0,"titles",0,"name"]]}',
+          method: 'set'
+        }
       };
 
       // Stubbed response object
