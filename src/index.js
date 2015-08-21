@@ -8,7 +8,7 @@ FalcorEndpoint.expressMiddleware = function(getDataSource) {
 };
 
 FalcorEndpoint.dataSourceRoute = function(getDataSource) {
-    return function(req, res) {
+    return function(req, res, next) {
         var obs;
         var dataSource = getDataSource(req, res);
         var context = requestToContext(req);
@@ -34,8 +34,10 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
         obs.subscribe(function(jsonGraphEnvelope) {
             res.status(200).send(JSON.stringify(jsonGraphEnvelope));
         }, function(err) {
+            if (err instanceof Error) {
+              return next(err);
+            }
             res.status(500).send(err);
         });
     };
 };
-
