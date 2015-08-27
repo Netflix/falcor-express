@@ -77,6 +77,7 @@ describe('dataSourceRoute', function () {
       expect(fakeRes.json.calledOnce).to.equal(true);
       // Check that the res.send was called with a jsonGraph object
       var sentValue = fakeRes.json.args[0][0];
+      expect(typeof(sentValue)).to.equal('object');
       expect(!!sentValue.jsonGraph).to.equal(true);
 
       done();
