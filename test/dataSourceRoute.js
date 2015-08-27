@@ -18,7 +18,7 @@ describe('dataSourceRoute', function () {
       // Stubbed response object
       var fakeRes = {
         status: sinon.stub().returnsThis(),
-        send: sinon.stub().returnsThis()
+        json: sinon.stub().returnsThis()
       };
 
       // Set up basic router and immediately invoke the returned funciton
@@ -35,9 +35,10 @@ describe('dataSourceRoute', function () {
       expect(fakeRes.status.calledOnce).to.equal(true);
       expect(fakeRes.status.args).to.deep.equal([[200]]);
 
-      expect(fakeRes.send.calledOnce).to.equal(true);
+      expect(fakeRes.json.calledOnce).to.equal(true);
       // Check that the res.send was called with a jsonGraph object
-      var sentValue = JSON.parse(fakeRes.send.args);
+      var sentValue = fakeRes.json.args[0][0];
+      expect(typeof(sentValue)).to.equal('object');
       expect(!!sentValue.jsonGraph).to.equal(true);
 
       done();
@@ -56,7 +57,7 @@ describe('dataSourceRoute', function () {
       // Stubbed response object
       var fakeRes = {
         status: sinon.stub().returnsThis(),
-        send: sinon.stub().returnsThis()
+        json: sinon.stub().returnsThis()
       };
 
       // Set up basic router and immediately invoke the returned funciton
@@ -73,9 +74,9 @@ describe('dataSourceRoute', function () {
       expect(fakeRes.status.calledOnce).to.equal(true);
       expect(fakeRes.status.args).to.deep.equal([[200]]);
 
-      expect(fakeRes.send.calledOnce).to.equal(true);
+      expect(fakeRes.json.calledOnce).to.equal(true);
       // Check that the res.send was called with a jsonGraph object
-      var sentValue = JSON.parse(fakeRes.send.args);
+      var sentValue = fakeRes.json.args[0][0];
       expect(!!sentValue.jsonGraph).to.equal(true);
 
       done();

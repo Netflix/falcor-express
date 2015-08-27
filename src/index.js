@@ -32,7 +32,7 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
         }
 
         obs.subscribe(function(jsonGraphEnvelope) {
-            res.status(200).send(JSON.stringify(jsonGraphEnvelope));
+            res.status(200).json(jsonGraphEnvelope);
         }, function(err) {
             if (err instanceof Error) {
               return next(err);
