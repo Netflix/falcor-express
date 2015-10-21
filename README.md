@@ -1,7 +1,7 @@
 # falcor-express
 Server middleware for falcor-express
 
-Working usage example of the basic repro in netflix/falcor-express-demo
+Working usage example of the basic repro in [netflix/falcor-express-demo](https://github.com/Netflix/falcor-express-demo)
 
 ## Usage
 Minimalistic example
