@@ -21,8 +21,8 @@
   "scripts": {
     "test": "mocha",
     "lint": "npm run lint:src && npm run lint:test",
-    "lint:src": "eslint --global require,module --reset src/",
-    "lint:test": "eslint --global require,module,it,describe --reset --rule {max-len:[2,200]} --rule {no-unused-expressions:0} test/"
+    "lint:src": "eslint --global require,module src/",
+    "lint:test": "eslint --global require,module,it,describe --rule {max-len:[2,200]} --rule {no-unused-expressions:0} test/"
   },
   "dependencies": {
     "body-parser": "^1.12.4",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "eslint": "^0.21.0",
+    "eslint": "^2.13.1",
     "falcor-router": "0.2.9",
     "mocha": "^2.5.3",
     "sinon": "^1.15.4"
