@@ -31,13 +31,13 @@ FalcorEndpoint.dataSourceRoute = function(getDataSource) {
             obs = dataSource[context.method]([].concat(context.paths));
         }
 
-        obs.subscribe(function(jsonGraphEnvelope) {
-            res.status(200).json(jsonGraphEnvelope);
+        return obs.subscribe(function(jsonGraphEnvelope) {
+            return res.status(200).json(jsonGraphEnvelope);
         }, function(err) {
             if (err instanceof Error) {
               return next(err);
             }
-            res.status(500).send(err);
+            return res.status(500).send(err);
         });
     };
 };
